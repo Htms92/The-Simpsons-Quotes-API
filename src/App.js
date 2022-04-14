@@ -1,5 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import quotesimpson from './components/simpson';
+
+const simpson = {
+  gender: 'male',
+  name: {
+    first: 'Charlie',
+    last: 'Thompson',
+  },
+  location: {
+    street: {
+      number: 761,
+      name: 'Tay Street',
+    },
+    city: 'Timaru',
+    postcode: 76111,
+  },
+  email: 'charlie.thompson@example.com',
+  picture: {
+    medium: 'https://simpsons-quotes-api.herokuapp.com/quotes',
+  },
+};
+
 
 function App() {
   return (
@@ -23,3 +45,5 @@ function App() {
 }
 
 export default App;
+
+
