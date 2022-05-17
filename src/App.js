@@ -7,11 +7,11 @@ function App() {
   const [simpson, setSimpson] = useState([]);
   console.log(simpson);
   const getSimpson = () => {
-    // Send the request
+
     axios
       .get("https://simpsons-quotes-api.herokuapp.com/quotes")
-      // Extract the DATA from the received response
-      // Use this data to update the state
+
+
       .then(({ data }) => {
         setSimpson(data);
       });
