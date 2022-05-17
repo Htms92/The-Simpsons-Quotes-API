@@ -1,5 +1,5 @@
-import "./styles.css";
-import QuoteCard from "./components/QuoteCard";
+import "./style.css";
+import QuoteCard from "./components/simpson";
 import axios from "axios";
 import { useState } from "react";
 
