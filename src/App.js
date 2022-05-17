@@ -1,49 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-import quotesimpson from './components/simpson';
-
-const simpson = {
-  gender: 'male',
-  name: {
-    first: 'Charlie',
-    last: 'Thompson',
-  },
-  location: {
-    street: {
-      number: 761,
-      name: 'Tay Street',
-    },
-    city: 'Timaru',
-    postcode: 76111,
-  },
-  email: 'charlie.thompson@example.com',
-  picture: {
-    medium: 'https://simpsons-quotes-api.herokuapp.com/quotes',
-  },
-};
-
+import "./styles.css";
+import QuoteCard from "./components/QuoteCard";
+import axios from "axios";
+import { useState } from "react";
 
 function App() {
+  const [simpson, setSimpson] = useState([]);
+  console.log(simpson);
+  const getSimpson = () => {
+    // Send the request
+    axios
+      .get("https://simpsons-quotes-api.herokuapp.com/quotes")
+      // Extract the DATA from the received response
+      // Use this data to update the state
+      .then(({ data }) => {
+        setSimpson(data);
+      });
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {simpson.map((simpsons, index) => (
+        <QuoteCard key={index} {...simpsons} />
+      ))}
+      <button type="button" onClick={getSimpson}>
+        Get Quote
+      </button>
     </div>
   );
 }
-
 export default App;
-
-
